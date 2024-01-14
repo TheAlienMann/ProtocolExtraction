@@ -9,13 +9,25 @@ import SwiftUI
 
 struct ContentView: View {
   var body: some View {
+    DummyViewOne(viewModel: DummyViewModel())
+      .padding()
+  }
+}
+
+struct DummyViewOne: View {
+  @ObservedObject var viewModel: DummyViewModel
+  
+  var body: some View {
     VStack {
-      Image(systemName: "globe")
-        .imageScale(.large)
-        .foregroundStyle(.tint)
-      Text("Hello, world!")
+      TextField("First name", text: $viewModel.firstName)
+        .textFieldStyle(.roundedBorder)
+      Text(viewModel.firstName)
+      
+      TextField("Message", text: $viewModel.message)
+        .textFieldStyle(.roundedBorder)
+      Text(viewModel.message)
     }
-    .padding()
+    .padding(.horizontal, 8)
   }
 }
 
