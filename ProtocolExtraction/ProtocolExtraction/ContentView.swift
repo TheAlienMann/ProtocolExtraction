@@ -14,8 +14,11 @@ struct ContentView: View {
   }
 }
 
-struct DummyViewOne: View {
-  @ObservedObject var viewModel: DummyViewModel
+// let's make use of the DummyProtocol we just created.
+// let's make`DummyViewOne` generic, where it would conform to DummyProtocol.
+struct DummyViewOne<T: DummyProtocol>: View {
+  // I need to change the type of viewModel to be T, cause the compiler is throwing an error on line 12, saying `type of T can't be inferred.`
+  @ObservedObject var viewModel: T
   
   var body: some View {
     VStack {
