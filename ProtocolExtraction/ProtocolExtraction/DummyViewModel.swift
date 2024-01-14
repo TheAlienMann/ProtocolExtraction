@@ -7,7 +7,8 @@
 
 import Foundation
 
-final class DummyViewModel: ObservableObject {
+// now, let's make out ViewModel conform to the protocol, instead of ObservableObject.
+final class DummyViewModel: DummyProtocol {
   @Published var firstName: String = ""
   @Published var message: String = ""
 }
