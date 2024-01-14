@@ -47,6 +47,7 @@ struct DummyViewTwo<S: DummyProtocol>: View {
     Text(viewModel.firstName + " " + viewModel.message)
   }
 }
+// builds and runs successfully!
 
 #Preview {
   ContentView()
