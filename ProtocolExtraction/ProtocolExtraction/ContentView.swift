@@ -31,8 +31,20 @@ struct DummyViewOne<T: DummyProtocol>: View {
         .textFieldStyle(.roundedBorder)
         .textInputAutocapitalization(.never)
       Text(viewModel.message)
+      
+      // calling DummyViewTwo, and passing viewModel to it.
+      DummyViewTwo(viewModel: viewModel)
     }
     .padding(.horizontal, 8)
+  }
+}
+
+// next, let's add a second View, where it would be generic of type out protocol as well. and call it inside ViewOne.
+struct DummyViewTwo<S: DummyProtocol>: View {
+  @ObservedObject var viewModel: S
+  
+  var body: some View {
+    Text(viewModel.firstName + " " + viewModel.message)
   }
 }
 
