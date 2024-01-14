@@ -25,6 +25,7 @@ struct DummyViewOne: View {
       
       TextField("Message", text: $viewModel.message)
         .textFieldStyle(.roundedBorder)
+        .textInputAutocapitalization(.never)
       Text(viewModel.message)
     }
     .padding(.horizontal, 8)
