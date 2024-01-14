@@ -22,3 +22,20 @@ final class DummyViewModel: ObservableObject {
      @Published internal var message: String { get set }
  }
  */
+
+// to create a protocol out of this interface, I am going to get some help from the compiler.
+// I'll add the errors I get along the way as comments.
+
+// I need a protocol, so replacing `final internal class` with `protocol` would be a good start + rename it a little to better reflect a protocol.
+protocol DummyProtocol: ObservableObject {
+  // here, I am getting 2 errors, 1. property 'firstName' declared inside a protocol cannot have a wrapper.
+  // 2. internal' modifier cannot be used in protocols.
+  var firstName: String { get set }
+  
+  // same two errors as above.
+  var message: String { get set }
+}
+
+// now the compiler is happy, let's build and run.
+
+// build & run succeeds. let's commit it.
